@@ -16,6 +16,7 @@ jobs:
           key: ${{ secrets.DROPLET_SSH_KEY }}
           script: |
             cd /opt/self-hosted-ai-starter-kit/repo_for_ai_starter_deployment
+            git reset --hard origin/main
             git pull origin main
             docker compose up -d --build
             docker image prune -f
